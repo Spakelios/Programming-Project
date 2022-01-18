@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+   
     private Rigidbody rigid;
+    
+  
 
     [SerializeField] private float _movementForce = 10f;
     [SerializeField] private double _maximumVelocity = 10f;
 
-    private void Awake() => rigid = GetComponent<Rigidbody>(); 
-
+    private void Awake() => rigid = GetComponent<Rigidbody>();
+    
     private void FixedUpdate()
     {
         if (rigid.velocity.magnitude >= _maximumVelocity)
@@ -29,6 +32,4 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
             rigid.AddForce(_movementForce * -transform.right); //- right force goes left with a
     }
-
-
 }

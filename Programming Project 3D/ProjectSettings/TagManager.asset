@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - FieldEnemy
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
