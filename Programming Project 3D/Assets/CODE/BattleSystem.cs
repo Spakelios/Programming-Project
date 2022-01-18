@@ -102,7 +102,7 @@ public class BattleSystem : MonoBehaviour
 		if(state == BattleState.WON) 
 		{
 			dialogueText.text = "You won the battle!"; // trigger victory text and reload scene
-			SceneManager.LoadScene(0);
+			SceneManager.LoadScene("PROTOTYPE");
 		} else if (state == BattleState.LOST)
 		{
 			dialogueText.text = "You were defeated."; // trigger end dialogue 
