@@ -9,7 +9,7 @@ public class Camera1Trigger : MonoBehaviour
   public GameObject roomCam;
   public GameObject anim;
   public GameObject hallCam;
-  private Animation doorClose;
+  
   private void OnTriggerEnter(Collider other)
   {
     if (other.CompareTag("Player"))
