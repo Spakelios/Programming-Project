@@ -10,9 +10,9 @@ public class cubeMove : MonoBehaviour
     
     public void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); // calling other objects rigidbodies 
         
-        PhysicMaterial boing = new PhysicMaterial("boing");
+        PhysicMaterial boing = new PhysicMaterial("boing"); // physics material 
 
         boing.bounciness = 1.0f;
 

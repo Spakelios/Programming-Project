@@ -10,10 +10,10 @@ public class ROOM3CAMTRIGGER : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            hallCam.SetActive(false);
-            roomCam3.SetActive(true);
+        if (other.CompareTag("Player")) // if player enters trigger
+        { 
+            hallCam.SetActive(false); // hall cam deactivates
+            roomCam3.SetActive(true); // room 3 cam activates
 
         }
     }
