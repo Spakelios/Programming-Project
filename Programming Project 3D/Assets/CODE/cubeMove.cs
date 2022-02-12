@@ -27,16 +27,5 @@ public class cubeMove : MonoBehaviour
             rb.AddForce(Vector3.right * 20, ForceMode.Impulse);
         }
 
-        if (rb.name == "cub")
-        {
-            rb.AddForce(Vector3.left * 20, ForceMode.Impulse);
-        }
-        
-        if (rb.name == "cube2")
-        {
-            rb.AddForce(Vector3.down * 20, ForceMode.Impulse);
-        }
-        
-        
     }
 }
