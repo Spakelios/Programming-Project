@@ -9,6 +9,7 @@ public class AnimationController2 : MonoBehaviour
     public Animator anim;
     private float Velocity = 0.0f;
     public float accelleration = 0.1f;
+    public float decelleration = 0.5f;
     private int VelocityHash;
 
     void Start()
@@ -23,11 +24,21 @@ public class AnimationController2 : MonoBehaviour
         bool forwardPressed = Input.GetKey("w");
         bool runPressed = Input.GetKey("q");
 
-        if (forwardPressed)
+        if (forwardPressed && Velocity < 5)
         {
             Velocity += Time.deltaTime * accelleration;
         }
 
+        if (!forwardPressed && Velocity > 0)
+        {
+            Velocity -= Time.deltaTime * decelleration;
+        }
+
+        if (!forwardPressed && Velocity < 0.1f)
+        {
+            Velocity = 0.0f;
+        }
+        
         anim.SetFloat(VelocityHash, Velocity);
     }
 }
