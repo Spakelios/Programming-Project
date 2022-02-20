@@ -76,7 +76,7 @@ BlendTree:
   m_Name: 2D Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: c29ed3c9f527b6e4689c4a64b26b7ec5, type: 3}
+    m_Motion: {fileID: 7400000, guid: 1b9b9871e6e1077438362cd373c5c568, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -92,7 +92,7 @@ BlendTree:
     m_DirectBlendParameter: Velocity z
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 19b69bc98c7481a42874387ce104be6b, type: 3}
+    m_Motion: {fileID: 7400000, guid: 619af6f28fcfe1d4a8c843966f34c8d9, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: 2}
     m_TimeScale: 1
@@ -198,10 +198,10 @@ AnimatorStateMachine:
     m_Position: {x: 785, y: 535, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8964238670786688064}
-    m_Position: {x: -30, y: 210, z: 0}
+    m_Position: {x: -10, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1236094401871942808}
-    m_Position: {x: -30, y: 330, z: 0}
+    m_Position: {x: -20, y: 330, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -318,6 +318,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: isRunning
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -338,7 +344,7 @@ AnimatorController:
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
-    m_SyncedLayerIndex: 0
+    m_SyncedLayerIndex: -1
     m_DefaultWeight: 0.07
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
