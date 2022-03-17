@@ -10,7 +10,7 @@ public class BattleTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player")) 
         {
-            SceneManager.LoadScene(1); // if collides with player load scene
+            SceneManager.LoadScene(0); // if collides with player load scene
         }
     }
 }
