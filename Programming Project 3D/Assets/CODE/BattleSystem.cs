@@ -10,7 +10,7 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST } // enumarate
 
 public class BattleSystem : MonoBehaviour
 {
-	
+
 	public GameObject playerPrefab; //player
 	public GameObject enemyPrefab; // enemy 
 
@@ -25,17 +25,19 @@ public class BattleSystem : MonoBehaviour
 	public BattleHUD playerHUD;
 	public BattleHUD enemyHUD;
 
+	private thing thing;
+
 	public BattleState state; // can change state in unity
-	
-    void Start()
-    {
+
+	void Start()
+	{
 		state = BattleState.START; // trigger start state 
 		StartCoroutine(SetupBattle());
-    }
+	}
 
 	IEnumerator SetupBattle()
 	{
-		GameObject playerGO = Instantiate(playerPrefab, playerBattleStation); 
+		GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
 		playerUnit = playerGO.GetComponent<Unit>(); // spawn player
 
 		GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
@@ -54,18 +56,19 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator PlayerAttack()
 	{
-		bool isDead = enemyUnit.TakeDamage(playerUnit.damage); 
+		bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
 		enemyHUD.SetHP(enemyUnit.currentHP); //
 		dialogueText.text = "The attack is successful!";
 
 		yield return new WaitForSeconds(2f); // wait 2 seconds 
 
-		if(isDead) // if enemy is dead 
+		if (isDead) // if enemy is dead 
 		{
 			state = BattleState.WON; // trigger win state 
 			EndBattle();
-		} else
+		}
+		else
 		{
 			state = BattleState.ENEMYTURN; // start enemy turn 
 			StartCoroutine(EnemyTurn());
@@ -79,17 +82,18 @@ public class BattleSystem : MonoBehaviour
 
 		yield return new WaitForSeconds(1f); // wait one second 
 
-		bool isDead = playerUnit.TakeDamage(enemyUnit.damage); 
+		bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
 
 		playerHUD.SetHP(playerUnit.currentHP);
 
 		yield return new WaitForSeconds(0f); // wait one second 
 
-		if(isDead)
+		if (isDead)
 		{
 			state = BattleState.LOST; // trigger loss state 
 			EndBattle();
-		} else
+		}
+		else
 		{
 			state = BattleState.PLAYERTURN; // trigger player turn
 			PlayerTurn();
@@ -99,11 +103,14 @@ public class BattleSystem : MonoBehaviour
 
 	void EndBattle()
 	{
-		if(state == BattleState.WON) 
+		if (state == BattleState.WON)
 		{
 			dialogueText.text = "You won the battle!"; // trigger victory text and reload scene
-			SceneManager.LoadScene("PROTOTYPE");
-		} else if (state == BattleState.LOST)
+			thing thing = new thing();
+			thing.isLoaded = false;
+
+		}
+		else if (state == BattleState.LOST)
 		{
 			dialogueText.text = "You were defeated."; // trigger end dialogue 
 		}
@@ -121,7 +128,7 @@ public class BattleSystem : MonoBehaviour
 		playerHUD.SetHP(playerUnit.currentHP); // show in hud
 		dialogueText.text = "You Healed!";
 
-		yield return new WaitForSeconds(2f); // wait 2 seconds 
+		yield return new WaitForSeconds(1f); // wait 2 seconds 
 
 		state = BattleState.ENEMYTURN; // trigger enemy turn 
 		StartCoroutine(EnemyTurn());
@@ -142,5 +149,4 @@ public class BattleSystem : MonoBehaviour
 
 		StartCoroutine(PlayerHeal());
 	}
-
 }
