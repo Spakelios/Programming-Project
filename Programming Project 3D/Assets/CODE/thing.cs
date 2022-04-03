@@ -6,9 +6,10 @@ public enum CheckMethod
     Distance,
     Trigger
 }
+
 public class thing : MonoBehaviour
 {
-
+    public GameObject healthbar;
     public Transform player;
     public CheckMethod checkMethod;
     public float loadRange;
@@ -67,6 +68,7 @@ public class thing : MonoBehaviour
             SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
             //We set it to true to avoid loading the scene twice
             isLoaded = true;
+            
         }
     }
 
@@ -84,6 +86,7 @@ public class thing : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             shouldLoad = true;
+            healthbar.SetActive(false);
         }
     }
 
@@ -92,6 +95,7 @@ public class thing : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             shouldLoad = false;
+            healthbar.SetActive(true);
         }
     }
 

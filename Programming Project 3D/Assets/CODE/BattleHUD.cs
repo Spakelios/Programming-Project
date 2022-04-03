@@ -15,6 +15,7 @@ public class BattleHUD : MonoBehaviour
  public void SetHUD(Unit unit)
   // public units which store and allow me to change characters stats and health within unity
  // and easily call them in other scripts. 
+ 
  {
   nameText.text = unit.unitName;
   levelText.text = "Lvl " + unit.unitLevel;

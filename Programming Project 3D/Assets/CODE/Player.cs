@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Vector3 respawnPoint;
+    public static Vector3 respawnPoint;
 
     public int maxHealth = 100;
-    public int currentHealth;
 
     public HealthBar healthBar;
-    
+
+    public static int currentHealth;
     void Start()
     {
         currentHealth = maxHealth;
@@ -52,6 +52,6 @@ public class Player : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
     }
-    
-    
+
+ 
 }

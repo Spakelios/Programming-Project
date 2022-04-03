@@ -12,6 +12,7 @@ TagManager:
   - boi#
   - boi
   - boing
+  - Coin
   layers:
   - Default
   - TransparentFX

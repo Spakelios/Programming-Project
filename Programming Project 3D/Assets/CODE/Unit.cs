@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class Unit : MonoBehaviour
@@ -10,6 +11,7 @@ public class Unit : MonoBehaviour
 
     public int maxHP; // max health to be edited in unity
     public int currentHP; // current health to be edited in unity 
+    
 
     public bool TakeDamage(int dmg)
     {
