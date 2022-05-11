@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using UnityEngine.WSA;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST } // enumarates states to switch between turns
 
 public class BattleSystem : MonoBehaviour
 {
-
+	public Unit unit;
 	public GameObject playerPrefab; //player
 	public GameObject enemyPrefab; // enemy 
 
@@ -98,16 +98,24 @@ public class BattleSystem : MonoBehaviour
 			state = BattleState.PLAYERTURN; // trigger player turn
 			PlayerTurn();
 		}
-
+		
 	}
+
+	public GameObject victoryScreen;
+	public TextMeshProUGUI coins;
+
 
 	void EndBattle()
 	{
 		if (state == BattleState.WON)
 		{
 			dialogueText.text = "You won the battle!"; // trigger victory text and reload scene
-			thing thing = new thing();
-			thing.isLoaded = false;
+			unit.unitLevel++;
+			
+			victoryScreen.SetActive(true);
+			coinDestroy.dropValue++;
+			coins.text = "Coins: " + coinDestroy.dropValue;
+
 
 		}
 		else if (state == BattleState.LOST)

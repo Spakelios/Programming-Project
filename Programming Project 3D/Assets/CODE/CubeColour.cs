@@ -23,28 +23,39 @@ public class CubeColour : MonoBehaviour
     }
 
     public GameObject gameObject;
+    public int puzzleCount;
 
-    private void OnCollisionEnter(Collision other) // nested if statements - if the tag is x change colour to y
+
+
+   private void OnCollisionEnter(Collision other) // nested if statements - if the tag is x change colour to y
     {
         if (other.gameObject.CompareTag("bouncy"))
         {
             other.gameObject.GetComponent<Renderer>().material.color = Color.red;
-             gameObject.GetComponent<Animator>().Play("DoorOpenowo");
+            puzzleCount++;
 
         }
        else if (other.gameObject.CompareTag("boing"))
         {
             other.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+            puzzleCount++;
         }
         else if (other.gameObject.CompareTag("bounce"))
         {
             other.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+            puzzleCount++;
         }
         else if (other.gameObject.CompareTag("boi"))
         {
             other.gameObject.GetComponent<Renderer>().material.color = Color.green;
+            puzzleCount++;
         }
-        
+
+        if (puzzleCount >= 8)
+        {
+            gameObject.GetComponent<Animator>().Play("DoorOpenowo");
+        }
+
     }
 
 }

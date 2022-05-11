@@ -39,22 +39,22 @@ public class FollowPlayer : MonoBehaviour
         if (!playerInSightRange && !playerIsNear && !playerIsAudible)
         {
             Patroling();
-            AudibleRange = 12;
+            AudibleRange++;
         }
         else if (playerInSightRange  && playerIsAudible)
         {
             ChasePlayer();
-            AudibleRange = 15;
+            AudibleRange++;
         }
         else if (playerIsNear)
         {
             ChasePlayer();
-            AudibleRange = 12;
+            AudibleRange++;
         }
         else if(playerIsAudible)
         {
             LookAtPlayer();
-            AudibleRange = 15;
+            AudibleRange++;
         }
     }
     

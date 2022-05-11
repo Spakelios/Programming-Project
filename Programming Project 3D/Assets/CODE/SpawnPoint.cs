@@ -12,9 +12,6 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField] public GameObject enemy;
 
     [SerializeField] private float spawnDelay; // alterable float that dictates how far apart they spawn
-
-
-    
     private void Update()
     {
         if (ShouldSpawn())

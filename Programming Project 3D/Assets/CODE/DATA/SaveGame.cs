@@ -1,36 +1,38 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using System.IO;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 
 public class SaveGame : MonoBehaviour
 {
+    private Unit _unit = new Unit();
+   
     public TextMeshProUGUI health;
-    // int lifePoints;
+
+
     string filePath;
     const string FILE_NAME = "SaveGame.txt";
 //this function emulates a random game event that changes the player life
-    
-    public void RandomiseLifePoints ()
-    {
-//the namespace was specified to avoid conflicts (System.Random vs UnityEngine.Random)
-        Player.currentHealth = (int)Mathf.Floor (UnityEngine.Random.Range (0.0f, 100.0f));
-    }
+
 //this function overrides the saving file
     public void SaveLifePoints ()
     {
         File.WriteAllText (filePath + "/" + FILE_NAME, Player.currentHealth.ToString ());
+        File.WriteAllText (filePath + "/" + FILE_NAME, _unit.unitLevel.ToString ());
+
+        
         Debug.Log ("File created and saved");
     }
     public void LoadLifePoints (){
 //always check the file exists
-        if (File.Exists (filePath + "/" + FILE_NAME)) {
+        if (File.Exists (filePath + "/" + FILE_NAME))
+        {
             Player.currentHealth = Int32.Parse (File.ReadAllText (filePath + "/" + FILE_NAME));
+            _unit.unitLevel = Int32.Parse (File.ReadAllText (filePath + "/" + FILE_NAME));
             Debug.Log ("File loaded successfully");
-        } else {
+        } 
+        else 
+        {
             Player.currentHealth = 0;
             Debug.Log ("File not found");
         }
@@ -47,6 +49,7 @@ public class SaveGame : MonoBehaviour
 // Update is called once per frame
     void Update (){
         health.text = "HP: " + Player.currentHealth;
+
     }
 }
 

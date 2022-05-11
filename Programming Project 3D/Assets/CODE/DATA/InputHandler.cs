@@ -14,7 +14,7 @@ public class InputHandler : MonoBehaviour {
 
     public void AddNameToList () {
         entries.Add (new InputEntry (nameInput.text, Random.Range (0, 100)));
-        nameInput.text = "";
+        nameInput.text = InputEntry.playerName;
 
         FileHandler.SaveToJSON<InputEntry> (entries, filename);
     }

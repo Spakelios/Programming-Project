@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
 
     public HealthBar healthBar;
 
-    public static int currentHealth;
+    public static int currentHealth;    
     void Start()
     {
         currentHealth = maxHealth;

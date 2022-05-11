@@ -11,12 +11,16 @@ public class BattleHUD : MonoBehaviour
  public TextMeshProUGUI nameText; // change the name in text box
  public TextMeshProUGUI levelText; // change level in text box
  public Slider hpSlider; // configure health
-
+ public TextMeshProUGUI playerName;
+ 
+ private GameStatus gs = new GameStatus();
+ 
  public void SetHUD(Unit unit)
   // public units which store and allow me to change characters stats and health within unity
  // and easily call them in other scripts. 
- 
+
  {
+  playerName.text = InputEntry.playerName;
   nameText.text = unit.unitName;
   levelText.text = "Lvl " + unit.unitLevel;
   hpSlider.maxValue = unit.maxHP;

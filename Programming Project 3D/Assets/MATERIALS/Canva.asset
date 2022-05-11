@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8e27b9c9fe7094ebdd2b2f195a2bd3, type: 3}
+  m_Name: Canva
+  m_EditorClassIdentifier: 
+  Character: {fileID: 21300000, guid: 067700472645dfe4a9c985ec70f1a7f4, type: 3}
+  panel: {fileID: 21300000, guid: 605ab5e71fabab64bbfc911905ab598e, type: 3}
